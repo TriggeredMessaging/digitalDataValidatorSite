@@ -1,0 +1,172 @@
+/* Splash */
+#splash {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}
+#splashUrlBar {
+    position: absolute;
+    margin: auto;
+    width: 700px;
+    height: 250px;
+    top: 0; left: 0; bottom: 0; right: 0;
+    box-sizing: border-box;
+}
+#splash h1 {
+    text-align: center;
+    padding-bottom: 13px;
+}
+#splash p {
+    padding: 13px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-width: 700px;
+}
+.footer > ul.nav > li {
+    display: inline-block;
+    float: none;
+}
+
+/* Main */
+#main {
+    display: none;
+}
+
+/* Left Pane*/
+
+#ddlTestResultsContainer {
+    position: absolute;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 279px;
+    left: 0;
+    top: 34px;
+    bottom: 0 !important;
+    padding: 0 13px;
+    border-right: 1px solid silver;
+    word-wrap: break-word;
+    z-index: 80;
+    background-color: white;
+}
+#refresh:hover {
+    cursor: pointer;
+}
+#loading {
+    display: none;
+}
+#ddlTestResultsContainer h4 {
+    text-align: center;
+}
+#ddlTestResultsContainer .panel ul {
+    padding-left: 0;
+    list-style-type: none;
+    margin-bottom: 2em;
+}
+#ddlTestResultsContainer a:not([href]):hover {
+    cursor: pointer;
+}
+.ui-resizable-e {
+    width: 10px;
+    right: 0;
+    background-color: #F8F8F8;
+}
+
+/* Product viewed within left pane */
+table.products,
+table.product {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    width: 100%;
+}
+table.products > tbody > tr:not(:last-child) > td {
+    border-bottom: 1px solid #BCE8F1;
+    padding-bottom: 5px;
+}
+table.products > tbody > tr:not(:first-child) > td {
+    padding-top: 5px;
+}
+table.products .nameCell {
+    padding: 0 10px;
+}
+table.products .imageCell {
+    width: 50px;
+}
+table.products .imageCell img {
+    max-width: 50px;
+    width: 100%;
+    height: auto;
+}
+table.products .priceCell {
+    text-align: right;
+}
+table.products .priceCell button {
+    margin-top: 8px;
+}
+#cartItemsFound .panel-body > div:first-child {
+    margin-bottom: 10px;
+}
+
+/* Nested data object */
+#ddlTestResultsContainer .nestedData {
+    font-size: 0.7em;
+}
+#ddlTestResultsContainer .nestedData ul {
+    margin: 0;
+    padding: 0 0 0.3em 0;
+    list-style-type: none;
+}#ddlTestResultsContainer .nestedData .detailsimage {
+    max-height: 50px;
+    max-width: 50px;
+}
+#ddlTestResultsContainer .nestedData > ul {
+    margin-top: 13px;
+}
+#ddlTestResultsContainer .nestedData li {
+    word-wrap: break-word;
+    border-left: 1px dotted #000;
+    border-bottom: 1px solid #FFF; /* To get a nice consistent dotted line on the left */
+    padding-left: 13px;
+    background: url('/static/dotted.gif') scroll no-repeat 1px 0.8em;
+}
+#ddlTestResultsContainer .nestedData li:last-child {
+    border-left-width: 0;
+    border-bottom-width: 0;
+    padding-left: 14px;
+    background: url('/static/dottedangle.gif') scroll no-repeat left top;
+}
+#ddlTestResultsContainer .nestedData li strong:first-child {
+    vertical-align: top;
+}
+
+/* iFrame obstructor */
+
+#testPageEventBlocker {
+    display: none;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: 70;
+}
+
+/* iFrame */
+
+#testPageContainer {
+    position: absolute;
+    left: 300px;
+    right: 0;
+    top: 34px;
+    bottom: 2px;
+    overflow: hidden;
+}
+#testPage {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+}
