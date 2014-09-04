@@ -24,7 +24,7 @@ var doRouting = function (req, res, pathname) {
                 helpers.serveFile(res, "static/index.htm");
                 return false;
             case "/static/validator.js":
-                helpers.serveFile(res, require("path").join(process.cwd(), "./node_modules/digitalDataValidator/validator-web.js"));
+                helpers.serveFile(res, require("path").join(process.cwd(), "./node_modules/digitaldatavalidator/validator-web.js"));
                 return false;
         }
 
