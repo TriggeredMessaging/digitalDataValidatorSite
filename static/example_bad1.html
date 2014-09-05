@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Example of a bad digitalData object</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/static/google-code-prettify/prettify.css">
+    <script src="/static/google-code-prettify/prettify.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var digitalData = {
+            "version": "1.0",
+            "page": {
+                "pageInfo": {
+                    "destinationURL": "http://www.example.com/19-widescreen-flat-panel-lcd-monitor.html",
+                    "referringURL": "http://www.example.com/electronics.html?cat=15&p=2",
+                    "breadcrumbs": [
+                        "Electronics",
+                        "19\" Widescreen Flat-Panel LCD Monitor"
+                    ],
+                    "language": "en_GB",
+                },
+                "category": {
+                    "primaryCategory": "Electronics",
+                    "pageType": "product"
+                }
+            },
+            "user": {
+                "profile": [
+                    {
+                        "profileInfo": {
+                            "language": "en_GB",
+                            "returningStatus": "false"
+                        }
+                    }
+                ]
+            },
+            "product": [
+                {
+                    "productInfo": {
+                        "productID": 156,
+                        "productName": "19\" Widescreen Flat-Panel LCD Monitor",
+                        "description": "2 ms response time; 10,000:1 contrast ratio; 300 cd/m² brightness; 1440 x 900 maximum resolution; DVI-D and 15-pin D-sub inputs",
+                        "productURL": "http://www.example.com/catalog/product/view/id/156/s/19-widescreen-flat-panel-lcd-monitor/category/13/",
+                        "productImage": "/static/images/19-widescreen-flat-panel-lcd-monitor.jpg",
+                        "productThumbnail": "/static/images/19-widescreen-flat-panel-lcd-monitor-thumb.jpg",
+                        "size": "1.0000"
+                    },
+                    "category": {
+                        "primaryCategory": "Monitors"
+                    },
+                    "price": {
+                        "basePrice": 399.99,
+                        "currency": "GBP",
+                        "priceWithTax": 399.99,
+                        "taxRate": 0
+                    },
+                    "attributes": {
+                    }
+                }
+            ]
+        };
+        // Undo url replacement by the proxy
+        var removeProxyUrl = function(url) {
+            var pos = url.indexOf("/site/");
+            if (pos!==-1) {
+                url = url.slice(pos+6);
+            }
+            return url;
+        }
+        digitalData.page.pageInfo.destinationURL = removeProxyUrl(digitalData.page.pageInfo.destinationURL);
+        digitalData.page.pageInfo.referringURL = removeProxyUrl(digitalData.page.pageInfo.referringURL);
+        digitalData.product[0].productInfo.productURL = removeProxyUrl(digitalData.product[0].productInfo.productURL);
+        // On page load
+        !function ($) {
+            $(function(){
+                var codeText = JSON.stringify(digitalData, null, 4);
+                codeText = codeText.replace(/\"([^(\")"]+)\":/g,"$1:"); // Remove quotes around keys
+                codeText = "var digitalData = "+codeText+";";
+                $('pre').first().html(codeText);
+                window.prettyPrint && prettyPrint();
+            })
+        }(window.jQuery)
+    </script>
+    <style>
+        .prettyprint ol.linenums > li { list-style-type: decimal; }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <h2>An example of a bad digitalData object</h2>
+    <p><a href="example_good1.html">Click here for an example of a good digitalData object</a>.</p>
+    <pre class="prettyprint linenums"></pre>
+</div>
+</body>
+</html>

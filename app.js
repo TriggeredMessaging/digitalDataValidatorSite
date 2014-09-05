@@ -8,6 +8,19 @@ var helpers = require("./lib/helpers");
 
 var doRouting = function (req, res, pathname) {
 
+    // Serve specific static content directly (for the good and bad examples)
+    if (pathname.indexOf("/static/") !== -1) {
+        switch (pathname) {
+            case "/site/http://localhost/static/css/bootstrap.min.css":
+            case "/site/http://localhost/static/js/bootstrap.min.js":
+            case "/site/http://localhost/static/google-code-prettify/prettify.css":
+            case "/site/http://localhost/static/google-code-prettify/prettify.js":
+                pathname = pathname.slice(pathname.indexOf("/static/"));
+                break;
+            default:
+        }
+    }
+
     if (pathname.indexOf("/site/") === -1) {
         // Standard, static files
         switch (pathname) {
@@ -52,9 +65,15 @@ var doRouting = function (req, res, pathname) {
 
         // User is trying to access this site
         if (site.indexOf(req.headers.host) !== -1) {
-            console.log("Forbidden from proxying self: " + req.url);
-            helpers.throw500(res);
-            return false;
+            switch (req.url) {
+                case "/site/http://localhost:8888/static/example_good1.html":
+                case "/site/http://localhost:8888/static/example_bad1.html":
+                    break;
+                default:
+                    console.log("Forbidden from proxying self: " + req.url);
+                    helpers.throw500(res);
+                    return false;
+            }
         }
         return site;
     }

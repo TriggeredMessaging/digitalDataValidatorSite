@@ -750,6 +750,7 @@ var validate = function (digitalData) {
 
         if (!digitalData) {
             ui.validationResults("<p>Digital Data Layer not detected.</p>");
+            contents.print(null);
             return;
         }
 

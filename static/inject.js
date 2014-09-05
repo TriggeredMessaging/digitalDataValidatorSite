@@ -26,8 +26,12 @@ var tms = {
     },
     validateDigitalDataLayer: function () {
         try {
-            if (window.top && window.top.validate && typeof digitalData !== "undefined") {
-                window.top.validate(digitalData);
+            if (window.top && window.top.validate) {
+                if (typeof digitalData !== "undefined") {
+                    window.top.validate(digitalData);
+                } else {
+                    window.top.validate(null);
+                }
             }
         } catch(e) {
         }
