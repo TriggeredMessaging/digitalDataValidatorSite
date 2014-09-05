@@ -1,4 +1,4 @@
-/*global $, console, validator */
+/*global $, console, validator, ga */
 /*exported validate */
 /*jshint multistr: true */
 
@@ -110,6 +110,14 @@ var ui = {
                 this.updateUrlTo(url);
                 document.getElementById("testPage").src = url;
             }
+
+            try {
+                ga('send', 'pageview', {
+                    'page': url
+                });
+            } catch(e) {
+            }
+
         } catch (e) {
             console.log(e);
         }
