@@ -103,6 +103,13 @@ var ui = {
                 url = url.slice(1, url.length);
             }
 
+            try {
+                ga('send', 'pageview', {
+                    'page': '/site/' + url
+                });
+            } catch(e) {
+            }
+
             var current_url = String($('iframe#testPage')[0].contentWindow.window.location).trim();
 
             url = String(prefix + url).trim();
@@ -110,14 +117,6 @@ var ui = {
                 this.updateUrlTo(url);
                 document.getElementById("testPage").src = url;
             }
-
-            try {
-                ga('send', 'pageview', {
-                    'page': url
-                });
-            } catch(e) {
-            }
-
         } catch (e) {
             console.log(e);
         }
