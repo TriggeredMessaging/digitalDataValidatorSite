@@ -4,11 +4,11 @@
     "description": "",
     "main": "app.js",
     "dependencies": {
-        "request": "~2.36.0",
-        "tough-cookie": "~0.12.1",
-        "jsdom": "~0.11.0",
-        "should": "~4.0.4",
-        "digitaldatavalidator": "~0.0.1"
+        "digitaldatavalidator": "~0.0.2",
+        "jsdom": "^13.0.0",
+        "request": "^2.88.0",
+        "should": "^13.2.3",
+        "tough-cookie": "^2.4.3"
     },
     "devDependencies": {},
     "scripts": {
